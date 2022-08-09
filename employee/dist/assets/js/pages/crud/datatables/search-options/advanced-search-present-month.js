@@ -5,7 +5,7 @@ var KTDatatablesSearchOptionsAdvancedSearch = function () {
 	});
 
 	var initTable1 = function () {
-		var months = ["Januari", "Februari", "Maret", "April", "Mei", "Juni",
+		var months = ["", "Januari", "Februari", "Maret", "April", "Mei", "Juni",
 			"Juli", "Agustus", "September", "Oktober", "November", "Desember"];
 		// begin first table
 		var table = $('#kt_datatable_present_month').DataTable({
