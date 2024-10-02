@@ -141,6 +141,12 @@
                     {
                         targets: 3,
                         width: '90',
+						render: function (data, type, full, meta) {
+							if (typeof data === 'undefined') {
+								return data;
+							}
+							return '<b>' + data + '</b>';
+						},
                     },
                     {
                         targets: 4,
@@ -174,22 +180,8 @@
                         width: '90',
                         render: function (data, type, full, meta) {
                             var status = {
-                                1: { 'title': 'DPB', 'class': 'label-light-success' },
-                                2: { 'title': 'DU', 'class': 'label-light-warning' },
-                            };
-                            if (typeof status[data] === 'undefined') {
-                                return data;
-                            }
-                            return '<span class="label label-lg font-weight-bold ' + status[data].class + ' label-inline">' + status[data].title + '</span>';
-                        },
-                    },
-                    {
-                        targets: 11,
-                        width: '80',
-                        render: function (data, type, full, meta) {
-                            var status = {
-                                GANJIL: { 'title': 'GANJIL', 'class': 'label-light-warning' },
-                                GENAP: { 'title': 'GENAP', 'class': 'label-light-success' },
+                                2: { 'title': 'DPB', 'class': 'label-light-success' },
+                                1: { 'title': 'DU', 'class': 'label-light-warning' },
                             };
                             if (typeof status[data] === 'undefined') {
                                 return data;
