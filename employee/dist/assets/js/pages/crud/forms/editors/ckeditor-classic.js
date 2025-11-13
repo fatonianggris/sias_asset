@@ -1,38 +1,86 @@
-/******/ (() => { // webpackBootstrap
-    /******/ 	"use strict";
-    var __webpack_exports__ = {};
-    /*!********************************************************************!*\
+/******/ (() => {
+  // webpackBootstrap
+  /******/ "use strict";
+  var __webpack_exports__ = {};
+  /*!********************************************************************!*\
      !*** ../demo1/src/js/pages/crud/forms/editors/ckeditor-classic.js ***!
      \********************************************************************/
 
-// Class definition
+  // Class definition
 
-    var KTCkeditor = function () {
-        // Private functions
-        var demos = function () {
-            ClassicEditor
-                    .create(document.querySelector('#kt-ckeditor-1'), {
-                        removePlugins: ['Heading', 'Link'],
-                        toolbar: ['bold', 'italic', '|', 'undo', 'redo', '|', 'numberedList', 'bulletedList']
-                    })
-                    .catch(error => {
-                        console.log(error);
-                    });
+  var KTCkeditor = (function () {
+    // Private functions
+    var demos = function () {
+      ClassicEditor.create(document.querySelector("#kt-ckeditor-1"), {
+        removePlugins: ["Heading", "Link"],
+        toolbar: [
+          "bold",
+          "italic",
+          "|",
+          "undo",
+          "redo",
+          "|",
+          "numberedList",
+          "bulletedList",
+        ],
+      }).catch((error) => {
+        console.log(error);
+      });
 
-        };
+      ClassicEditor.create(document.querySelector(".kt-ckeditor-2"), {
+        removePlugins: ["Heading", "Link"],
+        toolbar: [
+          "bold",
+          "italic",
+          "|",
+          "undo",
+          "redo",
+          "|",
+          "numberedList",
+          "bulletedList",
+        ],
+      }).catch((error) => {
+        console.log(error);
+      });
 
-        return {
-            // public functions
-            init: function () {
-                demos();
-            }
-        };
-    }();
+      ClassicEditor.create(document.querySelector("#kt-ckeditor-question"), {
+        removePlugins: ["Heading", "Link"],
+        toolbar: [
+          "bold",
+          "italic",
+          "|",
+          "undo",
+          "redo",
+          "|",
+          "numberedList",
+          "bulletedList",
+          "|",
+          "insertTable",
+        ],
+      })
+        .then((editor) => {
+          editor.model.document.on("change:data", () => {
+            document.querySelector("#keterangan").value = editor.getData();
+            window.editorInstance = editor;
+          });
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    };
 
-// Initialization
-    jQuery(document).ready(function () {
-        KTCkeditor.init();
-    });
-    /******/ })()
-        ;
+    return {
+      // public functions
+      init: function () {
+        demos();
+      },
+    };
+  })();
+
+  // Initialization
+  jQuery(document).ready(function () {
+    KTCkeditor.init();
+  });
+  /******/
+})();
 //# sourceMappingURL=ckeditor-classic.js.map
